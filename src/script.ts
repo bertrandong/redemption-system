@@ -7,9 +7,8 @@ const prisma = new PrismaClient()
 async function main() {
   const readline = require('readline-sync')
 
-  const staffPassId = readline.question("Please enter your staff pass ID: ")
+  const staffPassId = readline.question("Please enter your staff pass ID: ").toUpperCase()
   
-
   const user = await search(staffPassId)
 
   if (user) {
