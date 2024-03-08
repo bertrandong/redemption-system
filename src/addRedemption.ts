@@ -16,7 +16,7 @@ export async function addRedemption(teamName: string, redeemedAt: Date) {
           redeemed_at: redeemedAt.toISOString(),
         },
       });
-      console.log(`Successfully redeemed for team ${teamName} at ${redeemedAt}`)
+      console.log(`Successfully redeemed for team ${teamName} on ${redeemedAt}`)
     }
   } catch (error) {
     throw new Error(`Error adding redemption: ${error}`);

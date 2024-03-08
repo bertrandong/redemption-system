@@ -29,14 +29,12 @@ describe('addRedemption function', () => {
     const teamName = 'BASS';
     const redemptionDate = new Date()
     await addRedemption(teamName, redemptionDate);
-
     const redemptionCount = await prisma.redemption.count({
       where: {
         team_name: teamName,
         redeemed_at: redemptionDate
       },
     });
-
     expect(redemptionCount).toBe(1);
   });
 
@@ -44,19 +42,16 @@ describe('addRedemption function', () => {
     const teamName = 'BASS';
     const newRedemptionDate = new Date();
     await addRedemption(teamName, newRedemptionDate);
-
     const redemptionCount = await prisma.redemption.count({
       where: {
         team_name: teamName
       },
     });
-
     const redemptionHistory = await prisma.redemption.findUnique({
       where: {
         team_name: teamName
       },
     });
-
     expect(redemptionCount).toBe(1);
     expect(redemptionCount).not.toBe(redemptionHistory?.redeemed_at)
   });
@@ -67,14 +62,12 @@ describe('addRedemption function', () => {
     const teamName = 'RAVENCLAW';
     const redemptionDate = new Date()
     await addRedemption(teamName, redemptionDate);
-
     const redemptionCount = await prisma.redemption.count({
       where: {
         team_name: teamName,
         redeemed_at: redemptionDate
       },
     });
-
     expect(redemptionCount).toBe(1);
   });
 
@@ -82,19 +75,16 @@ describe('addRedemption function', () => {
     const teamName = 'RAVENCLAW';
     const newRedemptionDate = new Date();
     await addRedemption(teamName, newRedemptionDate);
-
     const redemptionCount = await prisma.redemption.count({
       where: {
         team_name: teamName
       },
     });
-
     const redemptionHistory = await prisma.redemption.findUnique({
       where: {
         team_name: teamName
       },
     });
-
     expect(redemptionCount).toBe(1);
     expect(redemptionCount).not.toBe(redemptionHistory?.redeemed_at)
   });

@@ -10,7 +10,7 @@ export async function verifyRedemption(teamName: string) {
       },
     });
     if (lastRedemption?.redeemed_at) {
-      console.log(`Team not eligible for redemption, last redeemed at ${lastRedemption.redeemed_at}`);
+      console.log(`Team not eligible for redemption, last redeemed on ${lastRedemption.redeemed_at}`);
       return false;
     }
     console.log("Team eligible for redemption");
