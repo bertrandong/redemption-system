@@ -8,7 +8,7 @@ export async function addRedemption(teamName: string, redeemedAt: Date) {
     const isEligible = await verifyRedemption(teamName)
 
     if (isEligible) {
-      await prisma.redemption.update({
+      const redemption = await prisma.redemption.update({
         where: {
           team_name: teamName
         },
@@ -16,7 +16,7 @@ export async function addRedemption(teamName: string, redeemedAt: Date) {
           redeemed_at: redeemedAt.valueOf(),
         },
       });
-      console.log(`Successfully redeemed for team ${teamName} on ${redeemedAt}`)
+      console.log(`Successfully redeemed for team ${teamName} on ${new Date(Number(redemption.redeemed_at))}`)
     }
   } catch (error) {
     throw new Error(`Error adding redemption: ${error}`);
