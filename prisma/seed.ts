@@ -11,7 +11,7 @@ async function main() {
       data: {
         staff_pass_id: json[i]["staff_pass_id"],
         team_name: json[i]["team_name"],
-        created_at: new Date(parseInt(json[i]["created_at"])),
+        created_at: json[i]["created_at"],
       }
     })
   }

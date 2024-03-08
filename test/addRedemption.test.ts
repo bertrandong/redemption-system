@@ -32,7 +32,7 @@ describe('addRedemption function', () => {
     const redemptionCount = await prisma.redemption.count({
       where: {
         team_name: teamName,
-        redeemed_at: redemptionDate
+        redeemed_at: redemptionDate.valueOf()
       },
     });
     expect(redemptionCount).toBe(1);
@@ -53,7 +53,7 @@ describe('addRedemption function', () => {
       },
     });
     expect(redemptionCount).toBe(1);
-    expect(redemptionCount).not.toBe(redemptionHistory?.redeemed_at)
+    expect(newRedemptionDate.valueOf()).not.toBe(redemptionHistory?.redeemed_at)
   });
   */
 
@@ -65,7 +65,7 @@ describe('addRedemption function', () => {
     const redemptionCount = await prisma.redemption.count({
       where: {
         team_name: teamName,
-        redeemed_at: redemptionDate
+        redeemed_at: redemptionDate.valueOf()
       },
     });
     expect(redemptionCount).toBe(1);
@@ -86,6 +86,6 @@ describe('addRedemption function', () => {
       },
     });
     expect(redemptionCount).toBe(1);
-    expect(redemptionCount).not.toBe(redemptionHistory?.redeemed_at)
+    expect(newRedemptionDate.valueOf()).not.toBe(redemptionHistory?.redeemed_at)
   });
 })

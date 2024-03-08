@@ -13,7 +13,7 @@ export async function addRedemption(teamName: string, redeemedAt: Date) {
           team_name: teamName
         },
         data: {
-          redeemed_at: redeemedAt.toISOString(),
+          redeemed_at: redeemedAt.valueOf(),
         },
       });
       console.log(`Successfully redeemed for team ${teamName} on ${redeemedAt}`)

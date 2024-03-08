@@ -25,6 +25,7 @@ describe('search function', () => {
     expect(staff).toBeDefined();
     expect(staff?.staff_pass_id).toBe(staffPassId);
     expect(staff?.team_name).toBe('SLYTHERIN');
+    expect(staff?.created_at).toBe(BigInt(1638117845204));
   });
 
   test('should return undefined if staff pass ID does not exist', async () => {
