@@ -1,3 +1,7 @@
+# Redemption System
+
+Built with Node.js, Typescript, Prisma, Jest
+
 ## Installation
 
 First, run the following command to install the relevant modules:
