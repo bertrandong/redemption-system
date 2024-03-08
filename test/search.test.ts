@@ -9,6 +9,7 @@ describe('search function', () => {
     expect(staff).toBeDefined();
     expect(staff?.staff_pass_id).toBe(staffPassId);
     expect(staff?.team_name).toBe('BASS');
+    expect(staff?.created_at).toBe(BigInt(1623772799000));
   });
 
   test('should return undefined if staff pass ID does not exist', async () => {
